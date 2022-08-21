@@ -8,9 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.hsilva.myshoppinglist.service.dto.Item
 
 @Composable
@@ -21,27 +24,24 @@ fun ShoppingItem(
 ) {
     Card(
         backgroundColor = MaterialTheme.colors.primary,
-        modifier = Modifier
-            .padding(8.dp)
+        modifier = Modifier.padding(8.dp),
     ) {
-        Spacer(modifier = Modifier.size(8.dp))
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth(),
         ) {
             Checkbox(checked = shoppingItem.isChecked, onCheckedChange = { onChecked(it) })
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .weight(1f),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+            Box(
+                modifier = Modifier.weight(1f),
+                contentAlignment = Alignment.CenterStart,
             ) {
                 Text(
-                    modifier = Modifier.fillMaxWidth().weight(1f),
                     text = shoppingItem.name,
-                    style = MaterialTheme.typography.subtitle2,
-                    color = Color.Black,
+                    style = TextStyle(
+                        fontFamily = FontFamily.SansSerif,
+                        fontSize = 15.sp
+                    ),
+                    color = Color.Black
                 )
             }
             IconButton(

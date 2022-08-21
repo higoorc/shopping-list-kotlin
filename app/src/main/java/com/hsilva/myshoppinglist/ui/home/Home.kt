@@ -42,7 +42,7 @@ fun HomeScreen() {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(10.dp),
         ) {
             OutlinedTextField(
                 modifier = Modifier
@@ -63,11 +63,12 @@ fun HomeScreen() {
                     focusedBorderColor = Color.Gray,
                     unfocusedBorderColor = Color.LightGray,
                     disabledBorderColor = Color.LightGray,
-                    disabledTextColor = Color.Gray
+                    disabledTextColor = Color.Gray,
+                    cursorColor = Color.Black
                 ),
                 label = {
                     Text(
-                        text = "Add new item",
+                        text = "Tap to add a new item",
                         style = TextStyle(
                             fontFamily = FontFamily.SansSerif,
                             fontSize = 18.sp,
