@@ -1,5 +1,6 @@
 package com.hsilva.myshoppinglist.service
 
+import com.hsilva.myshoppinglist.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +16,7 @@ object RetrofitInstance {
             .build()
 
         Retrofit.Builder()
-            .baseUrl("https://62ff738e9350a1e548def759.mockapi.io/")
+            .baseUrl(BuildConfig.REMOTE_SERVICE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

@@ -28,7 +28,7 @@ interface ShoppingListApi {
         @Path("id") id: String
     ): Response<Item>
 
-    @PATCH
+    @PATCH("items/{id}.json")
     suspend fun updateItem(
         @Path("id") id: String,
         @Body item: Item
