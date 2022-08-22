@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hsilva.myshoppinglist.service.dto.Item
@@ -37,10 +37,18 @@ fun ShoppingItem(
             ) {
                 Text(
                     text = shoppingItem.name,
-                    style = TextStyle(
-                        fontFamily = FontFamily.SansSerif,
-                        fontSize = 15.sp
-                    ),
+                    style = if (shoppingItem.isChecked) {
+                        TextStyle(
+                            fontFamily = FontFamily.SansSerif,
+                            fontSize = 15.sp,
+                            textDecoration = TextDecoration.LineThrough
+                        )
+                    } else {
+                        TextStyle(
+                            fontFamily = FontFamily.SansSerif,
+                            fontSize = 15.sp
+                        )
+                    },
                     color = Color.Black
                 )
             }
